@@ -31,6 +31,12 @@ namespace Cura
             builder.Services.AddHttpClient();
             builder.Services.AddCors();  // CORS added
 
+            // Force the app to run ONLY on port 5164
+            builder.WebHost.ConfigureKestrel(options =>
+            {
+                options.ListenAnyIP(5164);
+            });
+
             // Swagger Configuration
             builder.Services.AddSwaggerGen(c =>
             {
