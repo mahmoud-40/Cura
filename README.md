@@ -6,8 +6,8 @@ Cura is a Virtual Health Assistant powered by Generative AI. It helps users mana
 
 The Cura project is divided into four main parts:
 
-- **Cura.API** - The backend API built using ASP.NET Core.
-- **Cura.AiModel** - AI model responsible for chatbot responses and medical assistance.
+- **Cura.API** - The backend API built using ASP.NET Core (Runs on port **5164**).
+- **Cura.AiModel** - AI model responsible for chatbot responses and medical assistance (Runs on port **8080**).
 - **Cura.Flutter** - The mobile application built using Flutter.
 - **Cura.UI** - Screenshots and design references for the application.
 
@@ -17,6 +17,12 @@ The Cura project is divided into four main parts:
 - Medication reminders and notifications.
 - Secure user authentication and role management.
 - Future enhancements: chat saving, appointment booking, and more.
+
+## Demo
+
+![Demo Video](CuraDemo.mp4)
+
+[▶ Watch the Demo](CuraDemo.mp4)
 
 ## API Endpoints
 
@@ -49,6 +55,19 @@ An APK file (`CuraApp.apk`) is available in `Cura.Flutter` for testing the mobil
 - SQL Server
 - Entity Framework Core
 
+#### Required NuGet Packages
+Before running the API, install the following NuGet packages:
+```sh
+ dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
+ dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+ dotnet add package Microsoft.EntityFrameworkCore
+ dotnet add package Microsoft.EntityFrameworkCore.Design
+ dotnet add package Swashbuckle.AspNetCore
+ dotnet add package Swashbuckle.AspNetCore.Annotations
+ dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+ dotnet add package Microsoft.EntityFrameworkCore.Proxies
+```
+
 ### AI Model
 - Python 3
 - Required dependencies are listed in `requirements.txt` inside `Cura.AiModel`
@@ -58,19 +77,23 @@ An APK file (`CuraApp.apk`) is available in `Cura.Flutter` for testing the mobil
 
 ## How to Run
 
-### Backend (Cura.API)
+### Backend (Cura.API) - Runs on port **5164**
 1. Navigate to `Cura.API` directory.
 2. Update `appsettings.json` with your SQL Server connection string.
-3. Run the following command to apply migrations:
+3. Install required NuGet packages using:
+   ```sh
+   dotnet restore
+   ```
+4. Apply database migrations:
    ```sh
    dotnet ef database update
    ```
-4. Start the API:
+5. Start the API:
    ```sh
    dotnet run
    ```
 
-### AI Model (Cura.AiModel)
+### AI Model (Cura.AiModel) - Runs on port **8080**
 1. Navigate to `Cura.AiModel` directory.
 2. Install dependencies:
    ```sh
@@ -91,6 +114,7 @@ An APK file (`CuraApp.apk`) is available in `Cura.Flutter` for testing the mobil
    ```sh
    flutter run
    ```
+4. **Alternatively, install and test the APK (`CuraApp.apk`) directly.**
 
 ---
 
