@@ -20,9 +20,7 @@ The Cura project is divided into four main parts:
 
 ## Demo
 
-![Demo Video](CuraDemo.mp4)
-
-[▶ Watch the Demo](CuraDemo.mp4)
+https://github.com/user-attachments/assets/93ca4641-6d36-45eb-bdc3-cc6110407d9c
 
 ## API Endpoints
 
